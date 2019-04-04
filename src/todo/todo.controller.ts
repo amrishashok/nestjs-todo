@@ -16,6 +16,11 @@ export class TodoController {
         return await this.todoService.create(createTodoDto);
     }
 
+    @Post('update') 
+    async update(@Body() updateTodoDto: CreateTodoDto) {
+        return await this.todoService.update(updateTodoDto);
+    }
+
     @Delete(':id') 
     async delete(@Param('id') id: string) {
         return await this.todoService.deleteTodoById(id);

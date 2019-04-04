@@ -13,6 +13,13 @@ export class TodoService {
         return await createdTodo.save();
     }
 
+    public async update(updateTodoDto: CreateTodoDto) {
+        return await this.todoModel.updateOne({
+            _id: updateTodoDto._id
+        },updateTodoDto);
+    }
+
+
     public async getAllTodo() {
         return await this.todoModel.find().exec();
     }
